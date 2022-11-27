@@ -1,0 +1,14 @@
+{% extends 'base.html'%}
+{% block content%}
+    <div class="container">
+        <h1>This is the weather app!</h1>
+
+        <hr>
+
+        <h4>This is a simple weather app to see what the weather is like in the location of your choice</h4>
+        <br/>
+        {% import  'bootstrap/wtf.html' as wtf %}
+        {{ wtf.quick_form(form)}}
+
+    </div>
+{% endblock %}
