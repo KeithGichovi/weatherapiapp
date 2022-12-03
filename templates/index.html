@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block content %}
+    {{ super() }}
+    <div class="container">
+        <div class="pt-lg-5">
+            <h1>The weather app</h1>
+            <hr>
+
+            <div class="col-md-12 bg-primary bg-opacity-25">
+                <div class="col-md-6 px-4">
+                    <h2>{{ contents['location']['name'] }}, {{ contents['location']['country'] }}</h2>
+                    <p><strong>Temperature: </strong>{{ contents['current']['temperature'] }}°C</p>
+                    <p><strong>Time Checked: </strong>{{ contents['current']['observation_time'] }}</p>
+                    <p><strong>Longitude: </strong>{{ contents['location']['lon'] }}</p>
+                    <p><strong>Latitude: </strong>{{ contents['location']['lat'] }}</p>
+                    <p><strong>Timezone: </strong>{{ contents['location']['timezone_id'] }}</p>
+                    <p><strong>Cloud Cover: </strong>{{ contents['current']['cloudcover'] }}%</p>
+                    <p><strong>Wing Speed: </strong>{{ contents['current']['wind_speed'] }}kmh</p>
+                    <p><strong>Air Pressure: </strong>{{ contents['current']['pressure']}}Pa</p>
+                    <p><strong>Wind Direction: </strong>{{ contents['current']['wind_dir']}}</p>
+                    <p><strong>Precipitation: </strong>{{ contents['current']['precip']}}%</p>
+                    <p><strong>Humidity: </strong>{{ contents['current']['humidity']}}%</p>
+                </div>
+                <div class="col-md-6 px-4">
+                    <h3>Description:</h3>
+                    <p>{{ contents['current']['weather_descriptions'] | capitalize}}</p>
+                    <img class="img-fluid" src={{ contents['current']['weather_icons'] }}>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
