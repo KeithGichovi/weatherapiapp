@@ -16,7 +16,7 @@ app.config['SECRET_KEY'] = os.urandom(32)
 @app.route('/', methods=['GET', 'POST'])
 def index():
     form = Form()
-    city = 'washington'
+    city = 'london'
     weather = requests.get(f'https://api.openweathermap.org/data/2.5/weather?q={city}&units=metric&appid=' + key)
     contents = json.loads(weather.content)
     weather_display = {
