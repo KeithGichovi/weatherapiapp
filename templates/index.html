@@ -1,7 +1,9 @@
 {% extends'base.html' %}
 {% block content %}
-
     <div class="container">
+        <div class="banner pt-5">
+            <h1>What is the weather today? </h1>
+        </div>
         <form class="pt-5" method="get">
             {{ form.hidden_tag() }}
             {{ form.city.label() }}
@@ -12,13 +14,15 @@
         <br/>
         <div class="row weather-info">
             <div class="col-md-6">
+                <br>
                 <h2>{{ weather_display.city}}, {{ weather_display.country  }}</h2>
+                <hr/>
                 <img src="https://openweathermap.org/img/w/{{ weather_display.icon }}.png" alt="image">
                 <p>{{ weather_display.description|capitalize }}</p>
                 <p>Temperature: {{ weather_display.temperature }}°C</p>
             </div>
             <div class="col-md-6">
-                <br/>
+                <br><br><br>
                 <p>Highest temperature: {{ weather_display.max_temp }}°C</p>
                 <p>Lowest temperature: {{ weather_display.min_temp }}°C</p>
                 <p>Wind speed: {{ weather_display.wind_speed }} km/h</p>

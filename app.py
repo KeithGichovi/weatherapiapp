@@ -16,7 +16,7 @@ app.config['SECRET_KEY'] = os.urandom(32)
 @app.route('/', methods=['GET', 'POST'])
 def index():
     form = Form()
-    city = 'dublin'
+    city = 'washington'
     weather = requests.get(f'https://api.openweathermap.org/data/2.5/weather?q={city}&units=metric&appid=' + key)
     contents = json.loads(weather.content)
     weather_display = {
@@ -29,9 +29,8 @@ def index():
         'wind_direction': contents['wind']['deg'],
         'min_temp': math.ceil(contents['main']['temp_min']),
         'max_temp': math.ceil(contents['main']['temp_max']),
-        'temp_difference': math.ceil(contents['main']['temp_max'] - contents['main']['temp_min'])
+      #  'temp_difference': math.ceil(contents['main']['temp_max'] - contents['main']['temp_min'])
     }
-    print(weather_display)
     return render_template('index.html', weather_display=weather_display, form=form)
 
 
