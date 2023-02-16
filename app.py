@@ -8,6 +8,7 @@ import math
 from datetime import date
 key = 'd3a3a75852a441e51b6310f03db07a03'
 
+
 app = Flask(__name__)
 bootstrap = Bootstrap(app)
 app.config['SECRET_KEY'] = os.urandom(32)
